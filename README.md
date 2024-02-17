@@ -1,4 +1,6 @@
-# Python simple project
+# PDF Data Extraction Chatbot
+
+Short Description: "Leverage Python, Langchain, and ChromaDB to effortlessly retrieve data from PDF documents, enriching your chatbot's conversational prowess with valuable insights.
 
 ## Steps to use
 
