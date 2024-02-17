@@ -36,4 +36,6 @@ streamlit run src/main.py
 
 [github](https://github.com/Diegoomal)
 
-[github_src_code](https://github.com/kaifcoder/gemini_multipdf_chat/tree/main) 
+<!-- 
+[github_src_code](https://github.com/kaifcoder/gemini_multipdf_chat/tree/main)
+-->
