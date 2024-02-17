@@ -1,5 +1,16 @@
 # Python simple project
 
+## Steps to use
+
+- uploda file with pdf extention
+- click in 'Submit & process' button
+- now, you can use the chatbot to explore the file
+
+Ask example
+```
+resume the file
+```
+
 
 ## Execute
 
