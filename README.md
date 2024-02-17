@@ -1,6 +1,6 @@
 # PDF Data Extraction Chatbot
 
-Short Description: "Leverage Python, Langchain, and ChromaDB to effortlessly retrieve data from PDF documents, enriching your chatbot's conversational prowess with valuable insights.
+Harness Python, Langchain, Gemini (Google's AI), and ChromaDB (vector database) to seamlessly extract data from PDF documents, enriching your chatbot's conversational abilities with invaluable insights
 
 ## Steps to use
 
