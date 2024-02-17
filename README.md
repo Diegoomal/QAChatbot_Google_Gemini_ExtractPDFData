@@ -32,7 +32,7 @@ list the main characters
 
 ## Execute
 
-crie o arquivo ".env" com o conteudo abaixo
+create ".env" file
 
 ```
 GOOGLE_API_KEY= <<< SET YOUT GOOGLE_API_KEY HERE >>>
