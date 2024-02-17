@@ -36,7 +36,7 @@ crie o arquivo ".env" com o conteudo abaixo
 
 ```
 GOOGLE_API_KEY= <<< SET YOUT GOOGLE_API_KEY HERE >>>
-```resuma o arquivo
+```
 
 ## Commands
 
