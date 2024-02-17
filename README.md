@@ -8,9 +8,14 @@ Harness Python, Langchain, Gemini (Google's AI), and ChromaDB (vector database) 
 - click in 'Submit & process' button
 - now, you can use the chatbot to explore the file
 
-Ask example
+Ask examples:
+
 ```
 resume the file
+```
+
+```
+list the main characters
 ```
 
 
@@ -20,7 +25,7 @@ crie o arquivo ".env" com o conteudo abaixo
 
 ```
 GOOGLE_API_KEY= <<< SET YOUT GOOGLE_API_KEY HERE >>>
-```
+```resuma o arquivo
 
 ## Commands
 
