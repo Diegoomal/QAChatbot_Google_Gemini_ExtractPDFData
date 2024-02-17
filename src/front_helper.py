@@ -34,10 +34,12 @@ def user_input(user_question):
     return response
 
 
-def create_chat_page():
+def build_component_title():
     st.set_page_config( page_title="Gemini PDF Chatbot", page_icon="🤖" )
 
-    # Sidebar for uploading PDF files
+
+def build_component_sidebar():
+
     with st.sidebar:
         st.title("Menu:")
         pdf_docs = st.file_uploader(
@@ -50,6 +52,9 @@ def create_chat_page():
                 text_chunks = get_text_chunks(raw_text)
                 get_vector_store(text_chunks)
                 st.success("Done")
+
+
+def build_component_content():
 
     # Main content area for displaying chat messages
     st.title("Chat with PDF files using Gemini🤖")
@@ -88,3 +93,13 @@ def create_chat_page():
         if response is not None:
             message = {"role": "assistant", "content": full_response}
             st.session_state.messages.append(message)
+
+
+def create_chat_page():
+    
+    build_component_title()
+
+    build_component_sidebar()
+   
+    build_component_content()
+    

@@ -21,7 +21,7 @@ streamlit run src/main.py
  
 ```
 
-Links
+## Links
 
 [github](https://github.com/Diegoomal)
 
