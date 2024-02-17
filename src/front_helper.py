@@ -1,8 +1,6 @@
 import streamlit as st
 
 from backend_helper import (
-    get_embeddings, 
-    get_db, 
     get_conversational_chain,
     get_pdf_text,
     get_text_chunks,
@@ -35,17 +33,23 @@ def user_input(user_question):
 
 
 def build_component_title():
-    st.set_page_config( page_title="Gemini PDF Chatbot", page_icon="🤖" )
+    st.set_page_config( 
+        page_title="Gemini PDF Chatbot",
+        page_icon="🤖"
+    )
 
 
 def build_component_sidebar():
 
     with st.sidebar:
+
         st.title("Menu:")
+        
         pdf_docs = st.file_uploader(
             "Upload your PDF Files and Click on the Submit & Process Button",
             accept_multiple_files=True
         )
+        
         if st.button("Submit & Process"):
             with st.spinner("Processing..."):
                 raw_text = get_pdf_text(pdf_docs)
@@ -81,18 +85,29 @@ def build_component_content():
 
     # Display chat messages and bot response
     if st.session_state.messages[-1]["role"] != "assistant":
-        with st.chat_message("assistant"):
-            with st.spinner("Thinking..."):
-                response = user_input(prompt)
-                placeholder = st.empty()
-                full_response = ''
-                for item in response['output_text']:
-                    full_response += item
+
+        try:
+
+            with st.chat_message("assistant"):
+                with st.spinner("Thinking..."):
+                    response = user_input(prompt)
+                    placeholder = st.empty()
+                    full_response = ''
+                    for item in response['output_text']:
+                        full_response += item
+                        placeholder.markdown(full_response)
                     placeholder.markdown(full_response)
-                placeholder.markdown(full_response)
-        if response is not None:
-            message = {"role": "assistant", "content": full_response}
-            st.session_state.messages.append(message)
+            
+            if response is not None:
+                message = {"role": "assistant", "content": full_response}
+                st.session_state.messages.append(message)
+
+        except Exception as e:
+            error_message = f"An error occurred: {str(e)}"
+            with st.chat_message("assistant"):
+                st.error(error_message)
+            st.session_state.messages.append({"role": "assistant", "content": error_message})
+
 
 
 def create_chat_page():
