@@ -2,6 +2,17 @@
 
 Harness Python, Langchain, Gemini (Google's AI), and ChromaDB (vector database) to seamlessly extract data from PDF documents, enriching your chatbot's conversational abilities with invaluable insights
 
+
+## Tags
+
+- #AI
+- #NLP
+- #Python
+- #Chatbot
+- #Langchain
+- #PDFDataExtraction
+- #GeminiAI (Google)
+
 ## Steps to use
 
 - uploda file with pdf extention
