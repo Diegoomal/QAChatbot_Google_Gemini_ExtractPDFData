@@ -102,4 +102,3 @@ def create_chat_page():
     build_component_sidebar()
    
     build_component_content()
-    

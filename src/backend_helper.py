@@ -69,5 +69,6 @@ def get_embeddings():
 def get_db(embeddings):
     return FAISS.load_local("faiss_index", embeddings)
 
+
 def run_similatiry_search(user_question):
     return get_db( get_embeddings() ).similarity_search(user_question)
