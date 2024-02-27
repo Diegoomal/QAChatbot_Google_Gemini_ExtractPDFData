@@ -5,22 +5,21 @@ import streamlit as st
 
 import google.generativeai as genai
 from langchain_google_genai import (
+    GoogleGenerativeAIEmbeddings,
     ChatGoogleGenerativeAI,
     HarmBlockThreshold,
     HarmCategory,
 )
 
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import FAISS
 
-from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.chains.question_answering import load_qa_chain
 
 
 def load_api_key():
     load_dotenv()
-    os.getenv("GOOGLE_API_KEY")
     genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 

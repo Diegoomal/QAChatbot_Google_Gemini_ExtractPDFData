@@ -109,7 +109,6 @@ def build_component_content():
             st.session_state.messages.append({"role": "assistant", "content": error_message})
 
 
-
 def create_chat_page():
     
     build_component_title()
