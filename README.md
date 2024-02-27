@@ -57,3 +57,5 @@ streamlit run src/main.py
 <!-- 
 [github_src_code](https://github.com/kaifcoder/gemini_multipdf_chat/tree/main)
 -->
+
+[docs.lanchain](https://python.langchain.com/docs/integrations/chat/google_generative_ai)

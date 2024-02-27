@@ -4,11 +4,16 @@ from PyPDF2 import PdfReader
 import streamlit as st
 
 import google.generativeai as genai
+from langchain_google_genai import (
+    ChatGoogleGenerativeAI,
+    HarmBlockThreshold,
+    HarmCategory,
+)
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from langchain.vectorstores import FAISS
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_community.vectorstores import FAISS
+
 from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 
@@ -47,6 +52,7 @@ def get_vector_store(chunks):
 
 
 def get_conversational_chain():
+    
     prompt_template = """
     Answer the question as detailed as possible from the provided context, make sure to provide all the details, if the answer is not in
     provided context just say, "answer is not available in the context", don't provide the wrong answer\n\n
@@ -56,9 +62,24 @@ def get_conversational_chain():
     Answer:
     """
 
-    model = ChatGoogleGenerativeAI(model="gemini-pro", client=genai, temperature=0.3)
+    safety_settings = {
+        HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
+        HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+        HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+        HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+    }
+
+    model = ChatGoogleGenerativeAI(
+        model="gemini-pro", 
+        client=genai,
+        temperature=0.3,
+        safety_settings=safety_settings,
+    )
+
     prompt = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
+    
     chain = load_qa_chain(llm=model, chain_type="stuff", prompt=prompt)
+    
     return chain
 
 
